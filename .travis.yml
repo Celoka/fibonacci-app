@@ -15,7 +15,7 @@ after_success:
   - docker build -t celoka/fibonnaci-app-server ./server
   - docker build -t celoka/fibonnaci-app-worker ./worker
   # Login to the docker CLI
-  - echo "Asock1" | docker login -u "celoka" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Push all built images to docker hub
   - docker push celoka/fibonnaci-app-client
   - docker push celoka/fibonnaci-app-nginx
