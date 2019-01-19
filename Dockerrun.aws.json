@@ -1,0 +1,33 @@
+{
+	"AWSEBDockerrunVersion": 2,
+	"containerDefinitions": [{
+			"name": "client",
+			"image": "celoka/fibonnaci-app-client",
+			"hostname": "client",
+			"essential": false
+		},
+		{
+			"name": "server",
+			"image": "celoka/fibonnaci-app-server",
+			"hostname": "api",
+			"essential": false
+		},
+		{
+			"name": "worker",
+			"image": "celoka/fibonnaci-app-worker",
+			"hostname": "worker",
+			"essential": false
+		},
+		{
+			"name": "nginx",
+			"image": "celoka/fibonnaci-app-nginx",
+			"hostname": "nginx",
+			"essential": true,
+			"portMappings": [{
+				"hostPort": 80,
+				"containerPort": 80
+			}],
+			"links": ["client", "server"]
+		}
+	]
+}
