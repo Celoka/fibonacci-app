@@ -21,3 +21,16 @@ after_success:
   - docker push celoka/fibonnaci-app-nginx
   - docker push celoka/fibonnaci-app-server
   - docker push celoka/fibonnaci-app-worker
+
+deploy:
+  provider: elasticbeanstalk
+  region: us-east-2
+  app: fibonnaci-app
+  env: FibonnaciApp-env
+  bucket_name: elasticbeanstalk-us-east-2-758010155601
+  bucket_path: fibonnaci-app
+  on:
+    branch: master
+  access_key_id: "$AWS_ACCESS_KEY"
+  secret_access_key: 
+    secure:  "$AWS_SECRET_KEY"
