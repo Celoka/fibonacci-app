@@ -24,11 +24,11 @@ after_success:
 
 deploy:
   provider: elasticbeanstalk
-  region: us-east-2
-  app: fibonnaci-app
-  env: FibonnaciApp-env
-  bucket_name: elasticbeanstalk-us-east-2-758010155601
-  bucket_path: fibonnaci-app
+  region: "us-east-2"
+  app: "fibonnaci-app"
+  env: "FibonnaciApp-env"
+  bucket_name: "elasticbeanstalk-us-east-2-758010155601"
+  bucket_path: "fibonnaci-app"
   on:
     branch: master
   access_key_id: "$AWS_ACCESS_KEY"
